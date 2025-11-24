@@ -1,0 +1,128 @@
+:root{
+  --bg:#121212;
+  --panel:#1f1f1f;
+  --accent:#00b4ff;
+  --muted:#bdbdbd;
+  --button-bg:#05b6f0;
+  --neon: rgba(0,180,255,0.12);
+  --max-width:1100px;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(90deg,#151515 0%, #0c0c0c 60%, #062b4a 100%);color:#eee}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--max-width);margin:0 auto;padding:26px}
+header{height:72px;display:flex;align-items:center;justify-content:center}
+nav ul{display:flex;gap:26px;list-style:none;padding:0;margin:0;font-weight:700;letter-spacing:0.06em}
+nav li a{padding-bottom:6px;display:inline-block; position:relative;color:#ddd}
+nav li a.active::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);border-radius:2px}
+nav li a:hover{opacity:0.95}
+
+/* social bar */
+.social{
+  position:fixed;left:16px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;z-index:30
+}
+.social a{
+  width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.03);transition:all .18s;
+  text-decoration:none;font-weight:700;font-size:14px;
+}
+.social a:hover{color:#022;background:var(--accent);transform:translateY(-4px);box-shadow:0 8px 18px var(--neon)}
+
+/* hero layout */
+.hero{
+  display:grid;
+  grid-template-columns: 1fr 420px;
+  gap:36px;
+  align-items:center;
+  min-height:calc(100vh - 72px);
+  padding:20px 0 80px;
+}
+.intro{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:36px;border-radius:8px}
+.intro h5{color:var(--muted);margin:0 0 8px;font-weight:700}
+.intro h1{font-size:52px;margin:6px 0 18px;color:var(--accent);letter-spacing:0.02em}
+.intro p{color:#cfcfcf;max-width:640px;line-height:1.6}
+.cta{margin-top:22px;display:flex;gap:14px}
+.btn{display:inline-block;padding:12px 20px;border-radius:8px;font-weight:700;border:2px solid transparent;cursor:pointer}
+.btn.primary{background:var(--button-bg);color:#022;box-shadow:0 6px 18px rgba(5,182,240,0.14)}
+.btn.ghost{background:transparent;border-color:rgba(255,255,255,0.08);color:var(--muted)}
+
+/* portrait */
+
+.portrait-wrap{display:flex;align-items:center;justify-content:center;position:relative}
+
+/* Improved portrait neon ring + animated glow */
+.portrait{
+  width:360px;height:360px;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.03), transparent 40%), #0f1213;
+  position:relative;overflow:visible;
+}
+
+/* outer soft blur */
+.portrait::before{
+  content:"";position:absolute;inset:-30px;border-radius:50%;
+  background:radial-gradient(circle at 50% 50%, rgba(0,180,255,0.12), rgba(0,180,255,0.06) 40%, transparent 60%);
+  filter:blur(18px);z-index:1;transition:all .3s;
+  opacity:0.95;
+}
+
+/* solid neon ring that slightly pulses; sits above the image but uses transparency so it looks like a glow */
+.portrait::after{
+  content:"";position:absolute;inset:-8px;border-radius:50%;z-index:4;
+  pointer-events:none;
+  background: conic-gradient(from 200deg, rgba(0,180,255,0.95), rgba(0,200,255,0.75), rgba(120,200,255,0.55), rgba(0,180,255,0.95));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 16px), black calc(100% - 14px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 16px), black calc(100% - 14px));
+  filter:blur(6px) saturate(1.2);
+  box-shadow: 0 0 28px rgba(0,200,255,0.35), 0 0 60px rgba(0,160,255,0.12);
+  animation: neonPulse 2.6s ease-in-out infinite;
+}
+
+/* keep image above background but under the ring */
+.portrait img{
+  width:59%;height:60%;object-fit:cover;object-position: center 20%;border-radius:50%;z-index:3;display:block;
+  filter:grayscale(0.15) contrast(0.95);
+  box-shadow:0 12px 40px rgba(2,10,20,0.6);
+  border:0px solid rgba(0,0,0,0.35);
+  position:relative;
+}
+
+/* subtle pulsing animation for neon ring */
+@keyframes neonPulse {
+  0%{ transform: scale(1); filter: blur(5px) saturate(1.2); opacity:0.95; }
+  50%{ transform: scale(1.02); filter: blur(8px) saturate(1.3); opacity:1; }
+  100%{ transform: scale(1); filter: blur(5px) saturate(1.2); opacity:0.95; }
+}
+
+/* when hovering the portrait, make glow stronger */
+.portrait:hover::before{ filter:blur(28px); opacity:1; transform:translateY(-2px) }
+.portrait:hover::after{ filter:blur(4px) saturate(1.4); transform: scale(1.03) }
+
+
+/* sections */
+section.page{padding:72px 0;border-top:1px dashed rgba(255,255,255,0.03)}
+section.page h2{color:var(--accent);margin-bottom:12px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--panel);padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+.muted{color:var(--muted);font-size:14px}
+
+/* footer */
+footer{padding:36px 0;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,0.02)}
+
+/* responsive */
+@media (max-width:960px){
+  .hero{grid-template-columns:1fr;gap:18px;padding-bottom:60px}
+  .portrait{width:300px;height:300px;margin:auto}
+  .cards{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:520px){
+  nav ul{gap:12px;font-size:13px}
+  .intro h1{font-size:36px}
+  .cards{grid-template-columns:1fr}
+  .social{display:none}
+  .portrait{width:220px;height:220px}
+}
+
+/* utility */
+.small{font-size:13px;color:var(--muted)}
