@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HireMe — Send Message</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* small override for form layout */
+    .form-wrap{max-width:720px;margin:40px auto;padding:22px;background:var(--panel);border-radius:10px}
+    label{display:block;margin-bottom:6px;color:var(--muted);font-weight:700}
+    input[type="email"], textarea{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff;resize:vertical}
+    .send-row{display:flex;gap:12px;align-items:center;margin-top:12px}
+    .note{color:var(--muted);font-size:13px;margin-top:10px}
+  </style>
+</head>
+<body>
+   <div class="social">
+    <a href="https://www.instagram.com/cheema__bhai__222?igsh=MWM4NHBuNDM3ZWlicA==" title="Instagram" data-href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+</svg></a>
+    <a href="https://www.linkedin.com/in/asad-ali-72815b335?utm_source=share_via&utm_content=profile&utm_medium=member_android" title="LinkedIn" data-href="#">in</a>
+
+    <a href="https://www.tiktok.com/@cheema_bhai_222?_r=1&_t=ZS-91fjuQ23Skh" title="tiktok" data-href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
+  <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+</svg></a>
+    <a href="#" title="Portfolio" data-href="#">⌘</a>
+  </div>
+
+  <header>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="work.html">WORK</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="project.html">PROJECT</a></li>
+          <li><a href="education.html">EDUCATION</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page">
+    <h2>HireMe — Send Message</h2>
+    <p class="muted">Visitors can enter their email and a message. When they click Send, the visitor's email client will open a message addressed to <strong>YOUR_EMAIL_HERE</strong>. Replace <code>YOUR_EMAIL_HERE</code> in the script below with your real email address.</p>
+
+    <div class="form-wrap">
+      <form id="hidemeForm">
+        <label for="sender">Your Email</label>
+        <input id="sender" name="sender" type="email" placeholder="you@example.com" required />
+
+        <label for="subject">Subject</label>
+        <input id="subject" name="subject" type="text" placeholder="Subject (optional)" />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Type your message here..." required></textarea>
+
+        <div class="send-row">
+          <button type="submit" class="btn primary">Send on Email</button>
+          <button type="button" id="clearBtn" class="btn ghost">Clear</button>
+        </div>
+
+        <p class="note">Note: This form uses the visitor's email client to send messages (mailto). If you want messages to be delivered to your inbox without requiring visitor email client (i.e., server-side delivery), you'll need a backend or a service like Formspree/Netlify Forms. Ask me and I can help integrate that.</p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="container"><p class="small">Back to <a href="index.html">HOME</a></p></footer>
+
+<script>
+document.getElementById('clearBtn').addEventListener('click', function(){ document.getElementById('hidemeForm').reset(); });
+
+document.getElementById('hidemeForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  // Replace the following constant with your real email address
+  const OWNER_EMAIL = 'asadalicheema520@gmail.com'; // <<< change this to your email
+
+  const sender = encodeURIComponent(document.getElementById('sender').value.trim());
+  const subject = encodeURIComponent(document.getElementById('subject').value.trim() || 'Message from website visitor');
+  const message = encodeURIComponent(document.getElementById('message').value.trim());
+
+  // Build email body including visitor email
+  const body = encodeURIComponent('From: ' + (sender || 'anonymous') + '\n\n') + message;
+
+  // Compose mailto link
+  const mailto = 'mailto:' + OWNER_EMAIL + '?subject=' + subject + '&body=' + body;
+
+  // Open user's email client with composed message. This requires the user to have a mail client configured.
+  window.location.href = mailto;
+
+  // Optional: show a small confirmation to the visitor (they still must send from their mail client)
+  setTimeout(()=> alert('Your email client should open now. Complete & send the message from your email client.'), 300);
+});
+</script>
+
+</body>
+</html>
